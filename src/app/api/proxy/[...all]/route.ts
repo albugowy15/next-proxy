@@ -1,4 +1,4 @@
-import { proxyRequest } from "@/app/lib/proxy";
+import { proxyRequest } from "@/lib/proxy";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {

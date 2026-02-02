@@ -108,4 +108,5 @@ Open [http://localhost:3000](http://localhost:3000) to see the demo UI.
 
 - Next.js 16
 - TypeScript
+- Node 20
 - undici (HTTP client)
