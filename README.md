@@ -22,7 +22,7 @@ This project shows two approaches to create a proxy in Next.js that forwards req
 | Route Handler | `/api/proxy/*` | `src/app/api/proxy/[...all]/route.ts` |
 | Middleware    | `/proxy/*`     | `src/proxy.ts`                        |
 
-Both approaches use a shared proxy function in `src/app/lib/proxy.ts`.
+Both approaches use a shared proxy function in `src/lib/proxy.ts`.
 
 ---
 
@@ -33,7 +33,7 @@ Use Next.js API routes with a catch-all segment to handle proxy requests.
 ### `src/app/api/proxy/[...all]/route.ts`
 
 ```typescript
-import { proxyRequest } from "@/app/lib/proxy";
+import { proxyRequest } from "@/lib/proxy";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -63,7 +63,7 @@ Use Next.js middleware to intercept requests and proxy them before they reach ro
 
 ```typescript
 import { NextRequest, NextResponse } from "next/server";
-import { proxyRequest } from "./app/lib/proxy";
+import { proxyRequest } from "./lib/proxy";
 
 export async function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/proxy")) {
@@ -88,7 +88,7 @@ To use this, import and call the `proxy` function from your `middleware.ts`.
 
 ## Shared Proxy Logic
 
-Both approaches use the same proxy function in `src/app/lib/proxy.ts`:
+Both approaches use the same proxy function in `src/lib/proxy.ts`:
 
 ---
 
